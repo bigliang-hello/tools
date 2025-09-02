@@ -1,14 +1,15 @@
 import { Swiper, SwiperItem, View, Text } from '@tarojs/components'
 import { AtAvatar } from "taro-ui"
+import Taro from '@tarojs/taro'
 import styles from './index.module.scss'
 
 const Home = () => {
   const data = [
-                  {
-                      image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
-                      value: '领取中心'
-                  },
-                  {
+                {
+                    image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
+                    value: '头像生成'
+                },
+                {
                       image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
                       value: '找折扣'
                   },
@@ -54,7 +55,17 @@ const Home = () => {
           <View className={styles.gridContainer}>
             {
                 data.map((item, index) => (
-                    <View key={item.value} className={styles.gridItem}>
+                    <View 
+                        key={item.value} 
+                        className={styles.gridItem}
+                        onClick={() => {
+                            if (item.value === '头像生成') {
+                                Taro.navigateTo({
+                                    url: '/pages/avatar/index'
+                                })
+                            }
+                        }}
+                    >
                         <AtAvatar image={item.image} size='normal' />
                         <Text>{item.value}</Text>
                     </View>

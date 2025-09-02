@@ -20,5 +20,12 @@
     .gridItem {
         margin-bottom: 20px;
         width: 240px;
+        cursor: pointer;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        
+        &:hover, &:active {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
     }
 }

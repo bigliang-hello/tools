@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { View, Text } from '@tarojs/components'
 import { AtTabBar, AtButton } from 'taro-ui'
+import Taro from '@tarojs/taro'
 import styles from './index.module.scss'
 import Home from '../home'
 
@@ -17,6 +18,13 @@ const Index = () => {
     setCurrent(value)
   }
 
+  // 跳转到头像生成器页面
+  const navigateToAvatarGenerator = () => {
+    Taro.navigateTo({
+      url: '/pages/avatar/index'
+    })
+  }
+
   // 渲染不同页面内容
   const renderContent = () => {
     switch (current) {
@@ -30,6 +38,7 @@ const Index = () => {
             <Text className={styles.pageTitle}>我的</Text>
             <Text>这是个人中心页面</Text>
             <AtButton type='secondary'>个人设置</AtButton>
+            <AtButton type='primary' onClick={navigateToAvatarGenerator} className={styles.avatarButton}>头像生成器</AtButton>
           </View>
         )
       default:
