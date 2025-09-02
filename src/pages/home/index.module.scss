@@ -1,0 +1,24 @@
+.homeSwiper {
+    background-color: red;
+    height: 300px;
+    width: 100%;
+}
+
+.categoryTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.gridContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .gridItem {
+        margin-bottom: 20px;
+        width: 240px;
+    }
+}

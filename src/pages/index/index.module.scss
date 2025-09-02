@@ -1,0 +1,37 @@
+.pageContent {
+  padding-bottom: 80px; // 为底部TabBar留出空间
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.profilePage,
+.defaultPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.profilePage {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border-radius: 10px;
+  
+  .pageTitle {
+    color: white;
+  }
+}
+
+.defaultPage {
+  background: #f5f5f5;
+  border-radius: 10px;
+  color: #666;
+}
