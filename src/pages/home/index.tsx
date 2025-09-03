@@ -1,80 +1,93 @@
-import { Swiper, SwiperItem, View, Text } from '@tarojs/components'
-import { AtAvatar } from "taro-ui"
+import { Swiper, SwiperItem, View, Text, Image } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import styles from './index.module.scss'
 
 const Home = () => {
-  const data = [
-                {
-                    image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
-                    value: '头像生成'
-                },
-                {
-                      image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
-                      value: '找折扣'
-                  },
-                  {
-                      image: 'https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png',
-                      value: '领会员'
-                  },
-                  {
-                      image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png',
-                      value: '新品首发'
-                  },
-                  {
-                      image: 'https://img14.360buyimg.com/jdphoto/s72x72_jfs/t17251/336/1311038817/3177/72595a07/5ac44618Na1db7b09.png',
-                      value: '领京豆'
-                  },
-                  {
-                      image: 'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
-                      value: '手机馆'
-                  }
-              ];
-  return (
-      <>
-          <Swiper
-              className={styles.homeSwiper}
-              indicatorColor='#999'
-              indicatorActiveColor='#333'
-              circular
-              indicatorDots
-              autoplay>
-              <SwiperItem>
-                  <>1</>
-              </SwiperItem>
-              <SwiperItem>
-                  <>2</>
-              </SwiperItem>
-              <SwiperItem>
-                  <>3</>
-              </SwiperItem>
-          </Swiper>
-          <View className={styles.categoryTitle}>
-              <Text>Category</Text>
-          </View>
-          <View className={styles.gridContainer}>
-            {
-                data.map((item, index) => (
-                    <View 
-                        key={item.value} 
-                        className={styles.gridItem}
-                        onClick={() => {
-                            if (item.value === '头像生成') {
-                                Taro.navigateTo({
-                                    url: '/pages/avatar/index'
-                                })
-                            }
-                        }}
-                    >
-                        <AtAvatar image={item.image} size='normal' />
-                        <Text>{item.value}</Text>
-                    </View>
-                ))
-            }
-          </View>
-      </>
+    const data: CategoryType[] = [
+        {
+            type: 'category',
+            image: '../../resources/touxiangguanli.png',
+            name: '头像生成',
+            tag: 'avatar'
+        },
+        {
+            type: 'category',
+            image: '../../resources/meituan.png',
+            name: '美团外卖券',
+            tag: 'meituan'
+        },
+        {
+            type: 'category',
+            image: '../../resources/eleme.png',
+            name: '饿了么券',
+            tag: 'eleme'
+        },
+        {
+            type: 'category',
+            image: '../../resources/jingdong.png',
+            name: '京东外卖券',
+            tag: 'jd'
+        },
+        {
+            type: 'category',
+            image: '../../resources/touxiangguanli.png',
+            name: '丑头像生成器',
+            tag: 'uglyAvatar'
+        },
 
-  )
+    ];
+
+    const handleClick = (tag: string) => {
+        if (tag === 'avatar') {
+            Taro.navigateTo({
+                url: '/pages/avatar/index'
+            })
+        } else if (tag === 'uglyAvatar') {
+            Taro.navigateTo({
+                url: '/pages/uglyAvatar/index'
+            })
+        }
+    }
+
+    return (
+        <View className={styles.homePage}>
+            <Swiper
+                className={styles.homeSwiper}
+                indicatorColor='#999'
+                indicatorActiveColor='#333'
+                circular
+                indicatorDots
+                autoplay>
+                <SwiperItem>
+                    <>1</>
+                </SwiperItem>
+                <SwiperItem>
+                    <>2</>
+                </SwiperItem>
+                <SwiperItem>
+                    <>3</>
+                </SwiperItem>
+            </Swiper>
+            <View className={styles.categoryTitle}>
+                <Text>Category</Text>
+            </View>
+            <View className={styles.gridContainer}>
+                {
+                    data.map((item, _) => (
+                        <View
+                            key={item.tag}
+                            className={styles.gridItem}
+                            onClick={() => handleClick(item.tag)}
+                        >
+                            <Image src={item.image} className={styles.avatar} />
+                            <Text>{item.name}</Text>
+                        </View>
+                    ))
+                }
+            </View>
+        </View>
+
+    )
 }
 
 export default Home

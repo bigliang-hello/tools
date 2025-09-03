@@ -1,7 +1,8 @@
 export default defineAppConfig({
   pages: [
     'pages/index/index',
-    'pages/avatar/index'
+    'pages/avatar/index',
+    'pages/uglyAvatar/index'
   ],
   window: {
     backgroundTextStyle: 'light',
