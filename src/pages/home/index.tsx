@@ -6,12 +6,6 @@ const Home = () => {
     const data: CategoryType[] = [
         {
             type: 'category',
-            image: '../../resources/touxiangguanli.png',
-            name: '头像生成',
-            tag: 'avatar'
-        },
-        {
-            type: 'category',
             image: '../../resources/meituan.png',
             name: '美团外卖券',
             tag: 'meituan'
@@ -34,13 +28,19 @@ const Home = () => {
             name: '丑头像生成器',
             tag: 'uglyAvatar'
         },
+        {
+            type: 'category',
+            image: '../../resources/touxiangguanli.png',
+            name: '大转盘',
+            tag: 'whell'
+        },
 
     ];
 
     const handleClick = (tag: string) => {
-        if (tag === 'avatar') {
+        if (tag === 'whell') {
             Taro.navigateTo({
-                url: '/pages/avatar/index'
+                url: '/pages/wheel/index'
             })
         } else if (tag === 'uglyAvatar') {
             Taro.navigateTo({
