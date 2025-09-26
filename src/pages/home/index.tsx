@@ -30,9 +30,15 @@ const Home = () => {
         },
         {
             type: 'category',
-            image: '../../resources/touxiangguanli.png',
+            image: '../../resources/dazhuanpan.png',
             name: '大转盘',
             tag: 'whell'
+        },
+        {
+            type: 'category',
+            image: '../../resources/remind.png',
+            name: '提醒',
+            tag: 'remind'
         },
 
     ];
